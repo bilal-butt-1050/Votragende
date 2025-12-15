@@ -1,36 +1,22 @@
-"use client";
+// components/Hero.js
 
-import { ArrowRight, Play } from 'lucide-react';
-
-export default function Hero() {
+export default function Hero({
+  label,
+  tagline,
+}) {
   return (
-    <section className="hero fade-up">
-      <div className="hero-bg parallax" data-speed="0.3"></div>
-      
+    <section className="hero">
+      <div className="hero-bg"></div>
       <div className="hero-content">
-        <span className="hero-label">Singer • Guitarist</span>
+        <span className="hero-label">{label}</span>
         
-        <h1 className="hero-title">
-          Azeem <br />Toofani
-        </h1>
+        <div className="hero-title">
+          <img src="/images/logo3.png" alt="VOTRAGENDE Logo" />
+        </div>
         
-        <p className="hero-tagline">
-   A guitarist, composer, and sonic explorer
-        </p>
-        
-
+        <p className="hero-tagline">{tagline}</p>
       </div>
       
-      <div className="hero-portrait">
-        <div className="portrait-glow"></div>
-        <div className="portrait-container parallax" data-speed="0.2">
-          <img 
-            src="/images/pic1.png" 
-            alt="Azeem Toofani" 
-            className="portrait-image"
-          />
-        </div>
-      </div>
     </section>
   );
 }

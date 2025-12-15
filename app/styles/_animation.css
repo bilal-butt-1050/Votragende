@@ -1,0 +1,60 @@
+/* styles/_animations.css */
+
+/* --- Persistent Keyframes --- */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes wave-pulse {
+  0% {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+  }
+  100% {
+    width: 400px;
+    height: 400px;
+    opacity: 0;
+  }
+}
+
+/* ===============================
+   SCROLL FADE ANIMATIONS (REFINED)
+   =============================== */
+
+/* Base hidden state */
+.fade-up, .fade-left, .fade-right, .scale-in {
+  opacity: 0;
+  will-change: transform, opacity;
+  /* Premium, smooth transition: uses an expo-out curve */
+  transition: 
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-up { transform: translateY(50px); }
+.fade-left { transform: translateX(-50px); }
+.fade-right { transform: translateX(50px); }
+.scale-in { transform: scale(0.95); }
+
+/* The "Show" Class (Force visibility and reset transform) - Added by JS */
+.animate {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* Staggering Logic for Children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The JS will add a transition-delay to each child */
+.stagger-children.animate > * {
+  opacity: 1;
+  transform: translateY(0);
+}
