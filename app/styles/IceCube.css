@@ -1,0 +1,85 @@
+/* ===== SECTION ===== */
+.icecube-section {
+  background: #000;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ===== ICE CUBE CONTAINER ===== */
+.icecube-container {
+  perspective: 1000px;
+}
+
+/* ===== ICE CUBE ===== */
+.icecube {
+  position: relative;
+  width: 22rem;
+  height: 22rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.25rem solid rgba(173, 216, 230, 0.6);
+  border-radius: 0.5rem;
+  background: rgba(173, 216, 230, 0.05);
+  box-shadow: 0 0 2rem rgba(173, 216, 230, 0.3);
+  overflow: hidden;
+  filter: brightness(1);
+  transition: all 1s ease;
+}
+
+/* ===== ICE TEXT ===== */
+.ice-text {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #aee;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  mix-blend-mode: overlay;
+  user-select: none;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* ===== CRYSTALIZATION LAYERS ===== */
+.icecube::before,
+.icecube::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/images/crystal-texture.png') repeat;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  z-index: 4;
+  pointer-events: none;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Two layers for realistic growth */
+.icecube::before {
+  transform: scale(0.8) rotate(10deg);
+}
+.icecube::after {
+  transform: scale(0.9) rotate(-5deg);
+}
+
+/* ===== FREEZE ON SCROLL ===== */
+.icecube.freeze::before {
+  opacity: 0.5;
+  transform: scale(1) rotate(0deg);
+}
+
+.icecube.freeze::after {
+  opacity: 0.7;
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* ===== OPTIONAL ICE GLOW ===== */
+.icecube.freeze {
+  border-color: rgba(173, 216, 230, 0.9);
+  box-shadow: 0 0 3rem rgba(173, 216, 230, 0.6);
+  filter: brightness(0.9) blur(0.5px);
+}
