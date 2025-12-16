@@ -19,8 +19,7 @@ export default function Footer() {
               <span className="footer-brand-name">Votragende</span>
             </div>
             <p className="footer-description">
-              Engineering sonic perfection. Premium audio technology 
-              redefining the listening experience.
+     Experience sound in its purest form. Engineered for audiophiles, designed for executives.
             </p>
           </div>
           

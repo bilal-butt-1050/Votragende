@@ -19,7 +19,7 @@ export default function About() {
           <div className="about-features stagger-children">
             <div className="about-feature">
               <div className="feature-icon"><Volume2 size={24} /></div>
-              <span className="feature-text">360° Sound Field</span>
+              <span className="feature-text">Surround Sound</span>
             </div>
             <div className="about-feature">
               <div className="feature-icon"><Bluetooth size={24} /></div>
@@ -27,7 +27,7 @@ export default function About() {
             </div>
             <div className="about-feature">
               <div className="feature-icon"><Battery size={24} /></div>
-              <span className="feature-text">24hr Battery Life</span>
+              <span className="feature-text">Immersive Experience</span>
             </div>
             <div className="about-feature">
               <div className="feature-icon"><Shield size={24} /></div>

@@ -1,53 +1,58 @@
 // components/Navbar.jsx
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import "../app/styles/_navbar.css";
 
-export default function Navbar({
-  navVisible,
-  mobileMenuOpen,
-  setMobileMenuOpen
-}) {
+export default function Navbar() {
   const pathname = usePathname();
 
+  const [navVisible, setNavVisible] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const routes = [
-    { name: 'OVERVIEW', path: '/', key: 'overview' },
-    { name: 'TECHNICAL', path: '/technical', key: 'technical' },
+    { name: 'OVERVIEW', path: '/' },
+    { name: 'TECHNICAL', path: '/technical' },
   ];
 
-  const handleLinkClick = () => {
-    setMobileMenuOpen(false);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setNavVisible(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isActive = (path) => {
-    if (path === '/') {
-      return pathname === '/';
-    }
+    if (path === '/') return pathname === '/';
     return pathname.startsWith(path);
   };
 
   return (
     <>
       <nav className={`navbar ${navVisible ? 'visible' : ''}`}>
-        <div className="nav-logo">     
+        <div className="nav-logo">
           <Link href="/">
-            {/* Added wrapper div for better control */}
             <div className="logo-container">
-              <img 
-                src="/images/logo2.png" 
-                alt="Logo" 
+              <img
+                src="/images/logo2.png"
+                alt="Logo"
                 className="logo-image"
               />
             </div>
-          </Link>   
+          </Link>
         </div>
 
         <div className="nav-links">
           {routes.map((route) => (
             <Link
-              key={route.key}
+              key={route.path}
               href={route.path}
               className={`nav-link ${isActive(route.path) ? 'active' : ''}`}
             >
@@ -77,10 +82,10 @@ export default function Navbar({
         <div className="mobile-menu-links">
           {routes.map((route) => (
             <Link
-              key={route.key}
+              key={route.path}
               href={route.path}
               className={`nav-link ${isActive(route.path) ? 'active' : ''}`}
-              onClick={handleLinkClick}
+              onClick={() => setMobileMenuOpen(false)}
             >
               {route.name}
             </Link>
