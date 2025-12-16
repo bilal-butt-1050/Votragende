@@ -24,9 +24,7 @@ export default function Footer() {
           </div>
           
 
-          
-
-          
+        
           {/* Social */}
           <div className="footer-social fade-up stagger-3">
             <h4 className="footer-heading">Connect</h4>
