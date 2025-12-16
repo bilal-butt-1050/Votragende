@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation'; // Import for App Router path tracking
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import '@/app/globals.css';
 
 export default function RootLayout({ children }) {
@@ -83,6 +84,7 @@ export default function RootLayout({ children }) {
           
           {/* Render the specific page content (app/page.jsx or app/technical/page.jsx) */}
           {children} 
+          <Footer />
         </div>
       </body>
     </html>

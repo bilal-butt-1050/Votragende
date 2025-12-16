@@ -11,7 +11,7 @@ export default function Hero({
         <span className="hero-label">{label}</span>
         
         <div className="hero-title">
-          <img src="/images/logo3.png" alt="VOTRAGENDE Logo" />
+          <h1>VOTRAGENDE</h1>
         </div>
         
         <p className="hero-tagline">{tagline}</p>

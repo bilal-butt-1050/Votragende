@@ -71,18 +71,6 @@ export default function OverviewPage() {
         />
       </div>
 
-      <div className="scale-in">
-        <CTASection
-          title="Ready to Experience Votragende?"
-          description="Elevate your listening experience."
-          primaryBtnText="Find a Dealer"
-          primaryBtnIcon={<ChevronRight size={20} />}
-          secondaryBtnText="View Full Specs"
-          secondaryBtnIcon={<ChevronRight size={20} />}
-          // Action: Set up the link to the technical page
-          linkHrefSecondary="/technical" 
-        />
-      </div>
     </>
   );
 }
