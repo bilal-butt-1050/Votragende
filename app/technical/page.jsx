@@ -69,7 +69,7 @@ export default function TechnicalPage() {
             <span className="section-label">PHYSICAL DIMENSIONS</span>
             <h2 className="section-title">Size and Weight</h2>
             <p className="section-subtitle">
-              Precision-engineered for optimal acoustic performance and portability
+              Precision-engineered for optimal acoustic performance
             </p>
           </div>
           
@@ -196,11 +196,19 @@ export default function TechnicalPage() {
                   </p>
                 </div>
               </div>
+
+
             </div>
           </div>
         </section>
       </div>
 
+      <CTASection
+        title="Download Full Brand Identity"
+        primaryBtnText="Download PDF"
+        primaryBtnIcon={<ChevronRight size={18} />}
+        primaryHref="/images/Brand.pdf"
+      />
 
     </>
   );

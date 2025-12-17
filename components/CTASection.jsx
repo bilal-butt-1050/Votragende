@@ -3,7 +3,8 @@ export default function CTASection({
   title, 
   description, 
   primaryBtnText, 
-  primaryBtnIcon, 
+  primaryBtnIcon,
+  primaryHref,
   secondaryBtnText, 
   secondaryBtnIcon,
   onSecondaryClick 
@@ -12,14 +13,24 @@ export default function CTASection({
     <section className="cta-section fade-scroll">
       <h2>{title}</h2>
       <p>{description}</p>
+
       <div className="hero-ctas">
-        {primaryBtnText && (
-          <button className="cta-btn cta-primary">
+        {primaryBtnText && primaryHref && (
+          <a
+            href={primaryHref}
+            className="cta-btn cta-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {primaryBtnText} {primaryBtnIcon}
-          </button>
+          </a>
         )}
+
         {secondaryBtnText && (
-          <button className="cta-btn cta-secondary" onClick={onSecondaryClick}>
+          <button
+            className="cta-btn cta-secondary"
+            onClick={onSecondaryClick}
+          >
             {secondaryBtnText} {secondaryBtnIcon}
           </button>
         )}
